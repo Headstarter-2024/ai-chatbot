@@ -1,32 +1,32 @@
-import Link from "next/link"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+'use client'
+import Link from 'next/link'
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
+import { useScroll } from '@/context/ScrollContext'
+import { useEffect, useRef } from 'react'
 
 export function DashBoard() {
+  const { scrollAction } = useScroll()
+  const testimonialsRef = useRef<HTMLDivElement | null>(null)
+  const featuresRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const refs = {
+      testimonials: testimonialsRef,
+      features: featuresRef
+    }
+
+    if (
+      scrollAction &&
+      refs[scrollAction.section as keyof typeof refs]?.current
+    ) {
+      refs[scrollAction.section as keyof typeof refs].current?.scrollIntoView({
+        behavior: 'smooth'
+      })
+    }
+  }, [scrollAction])
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <header className="px-4 lg:px-6 h-14 flex items-center bg-[#f0f4ff] text-[#4b5563]">
-        <Link href="#" className="flex items-center justify-center" prefetch={false}>
-          <BrainIcon className="h-6 w-6 text-[#6366f1]" />
-          <span className="sr-only">Mindful AI</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            Features
-          </Link>
-          <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            Testimonials
-          </Link>
-          <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            FAQs
-          </Link>
-          <Link href="/chat" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            Chat Now
-          </Link>
-          <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            Contact
-          </Link>
-        </nav>
-      </header>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[#f0f4ff] text-[#4b5563]">
           <div className="container px-4 md:px-6">
@@ -37,7 +37,8 @@ export function DashBoard() {
                     Your Personal Mental Health AI Companion
                   </h1>
                   <p className="max-w-[600px] text-[#6b7280] md:text-xl">
-                    Get personalized support and evidence-based techniques to improve your mental well-being, 24/7.
+                    Get personalized support and evidence-based techniques to
+                    improve your mental well-being, 24/7.
                   </p>
                 </div>
                 <div className="flex gap-4">
@@ -63,14 +64,17 @@ export function DashBoard() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f4ff] text-[#4b5563]">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-[#e5e7eb] px-3 py-1 text-sm">Key Features</div>
+              <div ref={featuresRef} className="space-y-2">
+                <div className="inline-block rounded-lg bg-[#e5e7eb] px-3 py-1 text-sm">
+                  Key Features
+                </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Personalized Support Anytime, Anywhere
                 </h2>
                 <p className="max-w-[600px] text-[#6b7280] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our AI-powered chatbot is designed to provide you with personalized support and evidence-based
-                  techniques to improve your mental well-being, 24/7.
+                  Our AI-powered chatbot is designed to provide you with
+                  personalized support and evidence-based techniques to improve
+                  your mental well-being, 24/7.
                 </p>
               </div>
             </div>
@@ -79,9 +83,12 @@ export function DashBoard() {
                 <ul className="grid gap-6">
                   <li>
                     <div className="grid gap-1">
-                      <h3 className="text-xl font-bold">Personalized Support</h3>
+                      <h3 className="text-xl font-bold">
+                        Personalized Support
+                      </h3>
                       <p className="text-[#6b7280]">
-                        Our AI chatbot adapts to your unique needs and preferences, providing personalized support and
+                        Our AI chatbot adapts to your unique needs and
+                        preferences, providing personalized support and
                         guidance.
                       </p>
                     </div>
@@ -90,16 +97,20 @@ export function DashBoard() {
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">24/7 Availability</h3>
                       <p className="text-[#6b7280]">
-                        Get support whenever you need it, day or night, with our always-on chatbot.
+                        Get support whenever you need it, day or night, with our
+                        always-on chatbot.
                       </p>
                     </div>
                   </li>
                   <li>
                     <div className="grid gap-1">
-                      <h3 className="text-xl font-bold">Evidence-Based Techniques</h3>
+                      <h3 className="text-xl font-bold">
+                        Evidence-Based Techniques
+                      </h3>
                       <p className="text-[#6b7280]">
-                        Our chatbot uses proven, evidence-based techniques to help you manage stress, anxiety, and other
-                        mental health concerns.
+                        Our chatbot uses proven, evidence-based techniques to
+                        help you manage stress, anxiety, and other mental health
+                        concerns.
                       </p>
                     </div>
                   </li>
@@ -118,11 +129,16 @@ export function DashBoard() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f4ff] text-[#4b5563]">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-[#e5e7eb] px-3 py-1 text-sm">Testimonials</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">What Our Users Say</h2>
+              <div ref={testimonialsRef} className="space-y-2">
+                <div className="inline-block rounded-lg bg-[#e5e7eb] px-3 py-1 text-sm">
+                  Testimonials
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  What Our Users Say
+                </h2>
                 <p className="max-w-[600px] text-[#6b7280] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Hear from real people who have found relief and support through our AI chatbot.
+                  Hear from real people who have found relief and support
+                  through our AI chatbot.
                 </p>
               </div>
             </div>
@@ -136,12 +152,15 @@ export function DashBoard() {
                     </Avatar>
                     <div>
                       <p className="text-sm font-medium">John Doe</p>
-                      <p className="text-sm text-[#6b7280]">Software Engineer</p>
+                      <p className="text-sm text-[#6b7280]">
+                        Software Engineer
+                      </p>
                     </div>
                   </div>
                   <blockquote className="text-[#6b7280]">
-                  &quot;The Mindful AI chatbot has been a game-changer for my mental health. It&apos;s like having a personal
-                    therapist available 24/7.&quot;
+                    &quot;The Mindful AI chatbot has been a game-changer for my
+                    mental health. It&apos;s like having a personal therapist
+                    available 24/7.&quot;
                   </blockquote>
                 </div>
                 <div className="grid gap-4 rounded-lg border bg-white p-6">
@@ -152,12 +171,15 @@ export function DashBoard() {
                     </Avatar>
                     <div>
                       <p className="text-sm font-medium">Jane Smith</p>
-                      <p className="text-sm text-[#6b7280]">Marketing Manager</p>
+                      <p className="text-sm text-[#6b7280]">
+                        Marketing Manager
+                      </p>
                     </div>
                   </div>
                   <blockquote className="text-[#6b7280]">
-                  &quot;I was skeptical at first, but the Mindful AI chatbot has\n truly helped me manage my anxiety and
-                    improve my overall\n well-being.&quot;
+                    &quot;I was skeptical at first, but the Mindful AI chatbot
+                    has\n truly helped me manage my anxiety and improve my
+                    overall\n well-being.&quot;
                   </blockquote>
                 </div>
               </div>
@@ -252,35 +274,7 @@ export function DashBoard() {
   )
 }
 
-function BrainIcon(props : any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
-      <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
-      <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
-      <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" />
-      <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
-      <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
-      <path d="M19.938 10.5a4 4 0 0 1 .585.396" />
-      <path d="M6 18a4 4 0 0 1-1.967-.516" />
-      <path d="M19.967 17.484A4 4 0 0 1 18 18" />
-    </svg>
-  )
-}
-
-
-function XIcon(props : any) {
+function XIcon(props: any) {
   return (
     <svg
       {...props}
