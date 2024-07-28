@@ -11,21 +11,21 @@ export function ThemeToggle() {
   const [_, startTransition] = React.useTransition()
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={() => {
-        startTransition(() => {
-          setTheme(theme === 'light' ? 'dark' : 'light')
-        })
-      }}
-    >
-      {!theme ? null : theme === 'dark' ? (
-        <IconMoon className="transition-all" />
-      ) : (
-        <IconSun className="transition-all" />
-      )}
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+    // <Button
+    //   variant="ghost"
+    //   size="icon"
+    //   onClick={() => {
+    //     startTransition(() => {
+    //       setTheme(theme === 'light' ? 'dark' : 'light')
+    //     })
+    //   }}
+    // >
+    //   {!theme ? null : theme === 'dark' ? (
+    //     <IconMoon className="transition-all" />
+    //   ) : (
+    //     <IconSun className="transition-all" />
+    //   )}
+    //   <span className="sr-only">Toggle theme</span>
+    // </Button>
   )
 }
