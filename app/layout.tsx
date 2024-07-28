@@ -9,6 +9,8 @@ import { Header } from '@/components/header'
 import { Toaster } from '@/components/ui/sonner'
 import { ScrollProvider } from '@/context/ScrollContext'
 
+import {GoogleAnalytics} from '@next/third-parties/google'
+
 export const metadata = {
   metadataBase: process.env.VERCEL_URL
     ? new URL(`https://${process.env.VERCEL_URL}`)
@@ -61,6 +63,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <TailwindIndicator />
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-HE65WTJHYN" />
     </html>
   )
 }
