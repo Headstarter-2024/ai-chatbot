@@ -3,7 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { useScroll } from '@/context/ScrollContext'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export function DashBoard() {
   const { scrollAction } = useScroll()
@@ -41,7 +42,7 @@ export function DashBoard() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_550px]">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
+                <div className="lg:space-y-4 space-y-6">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                     Your Personal Mental Health AI Companion
                   </h1>
@@ -73,7 +74,7 @@ export function DashBoard() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f4ff] text-[#4b5563]">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div ref={featuresRef} className="space-y-2 flex flex-col items-center">
+              <div ref={featuresRef} className="space-y-5 flex flex-col items-center">
                 <div className="inline-block rounded-lg bg-[#e5e7eb] px-3 py-1 text-sm">
                   Key Features
                 </div>
