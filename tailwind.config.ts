@@ -17,6 +17,9 @@ module.exports = {
       }
     },
     extend: {
+      screens: {
+        xs: '897px'
+      },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)']

@@ -10,6 +10,7 @@ export const { auth, signIn, signOut } = NextAuth({
   providers: [
     Credentials({
       async authorize(credentials) {
+        console.log('IN AUTHROIZE')
         const parsedCredentials = z
           .object({
             email: z.string().email(),
@@ -18,8 +19,10 @@ export const { auth, signIn, signOut } = NextAuth({
           .safeParse(credentials)
 
         if (parsedCredentials.success) {
+          console.log('PARSEDCREDENTIALS WAS SUCCCESS, cALLING GETUSER')
           const { email, password } = parsedCredentials.data
           const user = await getUser(email)
+          console.log('GETUSER RETURNED ', user)
 
           if (!user) return null
 
@@ -32,8 +35,10 @@ export const { auth, signIn, signOut } = NextAuth({
           const hashedPassword = getStringFromBuffer(hashedPasswordBuffer)
 
           if (hashedPassword === user.password) {
+            console.log('USER WAS NOT NULL AND CORRECT PW')
             return user
           } else {
+            console.log('USER WAS NOT NULL BUT INC PW')
             return null
           }
         }
