@@ -40,16 +40,16 @@ export function ChatPanel({
       subheading: 'very anxious lately.',
       message: `I am feeling very anxious lately. Can you help me understand why I might be feeling this way?`
     },
-    {
-      heading: 'I struggle with',
-      subheading: 'depression.',
-      message: `I struggle with depression. What steps can I take to start feeling better?`
-    },
-    {
-      heading: 'I have been',
-      subheading: 'feeling down.',
-      message: `I have been feeling down and I don't know why. Can you help me figure it out?`
-    },
+    // {
+    //   heading: 'I struggle with',
+    //   subheading: 'depression.',
+    //   message: `I struggle with depression. What steps can I take to start feeling better?`
+    // },
+    // {
+    //   heading: 'I have been',
+    //   subheading: 'feeling down.',
+    //   message: `I have been feeling down and I don't know why. Can you help me figure it out?`
+    // },
     {
       heading: 'What are some',
       subheading: 'techniques for handling panic attacks?',
