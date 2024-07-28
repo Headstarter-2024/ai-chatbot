@@ -197,7 +197,7 @@ export function Chat() {
   )
 }
 
-function BrainIcon(props) {
+function BrainIcon(props: any) {
   return (
     <svg
       {...props}
@@ -225,7 +225,7 @@ function BrainIcon(props) {
 }
 
 
-function XIcon(props) {
+function XIcon(props: any) {
   return (
     <svg
       {...props}
