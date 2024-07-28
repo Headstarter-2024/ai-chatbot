@@ -1,7 +1,26 @@
+'use client';
 import Link from "next/link"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { useScroll } from '@/context/ScrollContext';
+import { useEffect, useRef } from "react";
 
 export function DashBoard() {
+  const { scrollAction } = useScroll();
+  const testimonialsRef = useRef<HTMLDivElement | null>(null);
+  const featuresRef = useRef<HTMLDivElement | null>(null);
+
+
+  useEffect(() => {
+    const refs = {
+      testimonials: testimonialsRef,
+      features: featuresRef,
+    };
+
+    if (scrollAction && refs[scrollAction.section as keyof typeof refs]?.current) {
+      refs[scrollAction.section as keyof typeof refs].current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [scrollAction]);
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <main className="flex-1">
@@ -40,7 +59,7 @@ export function DashBoard() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f4ff] text-[#4b5563]">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
+              <div ref={featuresRef} className="space-y-2">
                 <div className="inline-block rounded-lg bg-[#e5e7eb] px-3 py-1 text-sm">Key Features</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Personalized Support Anytime, Anywhere
@@ -95,7 +114,7 @@ export function DashBoard() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f4ff] text-[#4b5563]">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
+              <div ref={testimonialsRef} className="space-y-2">
                 <div className="inline-block rounded-lg bg-[#e5e7eb] px-3 py-1 text-sm">Testimonials</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">What Our Users Say</h2>
                 <p className="max-w-[600px] text-[#6b7280] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

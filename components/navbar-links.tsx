@@ -1,19 +1,24 @@
 'use client';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useScroll } from '@/context/ScrollContext';
 
 export default function NavBarLinks() {
     const pathname = usePathname();
+    const { setScrollAction } = useScroll();
+
+    const handleClick = (section : string): void => {
+        setScrollAction({ section, timestamp: Date.now() });
+    };
+
+
     return (<nav className={`${pathname === '/' ? 'block' : 'hidden'} ml-auto flex gap-4 sm:gap-6`}>
-      <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+          <div onClick={() => handleClick('features')} className="cursor-pointer text-sm font-medium hover:underline underline-offset-4">
             Features
-          </Link>
-          <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+          </div>
+          <div onClick={() => handleClick('testimonials')} className="cursor-pointer text-sm font-medium hover:underline underline-offset-4">
             Testimonials
-          </Link>
-          <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            FAQs
-          </Link>
+          </div>
           <Link href="/chat" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             Chat Now
           </Link>
