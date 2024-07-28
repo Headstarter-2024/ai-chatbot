@@ -29,8 +29,8 @@ export default function LoginForm() {
       action={dispatch}
       className="flex flex-col items-center gap-4 space-y-3"
     >
-      <div className="w-full flex-1 rounded-lg px-6 pb-4 pt-8  md:w-96 dark:bg-zinc-950">
-        <h1 className="mb-3 text-2xl font-bold">Sign in to CalmCompanion</h1>
+      <div className="w-full flex-1 rounded-lg px-6 pb-4 pt-8  md:w-96">
+        <h1 className="mb-3 text-2xl font-bold">Sign in to Calm Companion</h1>
         <div className="w-full">
           <div>
             <label
@@ -41,7 +41,7 @@ export default function LoginForm() {
             </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border bg-zinc-50 px-2 py-[9px] text-sm outline-none placeholder:text-zinc-500 dark:border-zinc-800 dark:bg-zinc-950"
+                className="peer block w-full rounded-md border bg-zinc-50 px-2 py-[9px] text-sm outline-none placeholder:text-zinc-500 dark:border-zinc-800"
                 id="email"
                 type="email"
                 name="email"
