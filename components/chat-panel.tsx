@@ -36,27 +36,46 @@ export function ChatPanel({
 
   const exampleMessages = [
     {
-      heading: 'What are the',
-      subheading: 'trending memecoins today?',
-      message: `What are the trending memecoins today?`
+      heading: 'I am feeling',
+      subheading: 'very anxious lately.',
+      message: `I am feeling very anxious lately. Can you help me understand why I might be feeling this way?`
     },
     {
-      heading: 'What is the price of',
-      subheading: '$DOGE right now?',
-      message: 'What is the price of $DOGE right now?'
+      heading: 'I struggle with',
+      subheading: 'depression.',
+      message: `I struggle with depression. What steps can I take to start feeling better?`
     },
     {
-      heading: 'I would like to buy',
-      subheading: '42 $DOGE',
-      message: `I would like to buy 42 $DOGE`
+      heading: 'I have been',
+      subheading: 'feeling down.',
+      message: `I have been feeling down and I don't know why. Can you help me figure it out?`
     },
     {
       heading: 'What are some',
-      subheading: `recent events about $DOGE?`,
-      message: `What are some recent events about $DOGE?`
+      subheading: 'techniques for handling panic attacks?',
+      message: `What are some techniques for handling panic attacks?`
+    },
+    {
+      heading: 'Can you help me',
+      subheading: 'with my negative thoughts?',
+      message: `Can you help me with my negative thoughts? They seem to be overwhelming.`
+    },
+    {
+      heading: 'I want to learn',
+      subheading: 'about DBT techniques.',
+      message: `I want to learn about DBT techniques. How can they help me with my mental health?`
+    },
+    {
+      heading: 'What should I do if',
+      subheading: 'I feel overwhelmed?',
+      message: `What should I do if I feel overwhelmed by my emotions and thoughts?`
+    },
+    {
+      heading: 'How can I cope',
+      subheading: 'with my daily stressors?',
+      message: `How can I cope with my daily stressors in a healthier way?`
     }
-  ]
-
+  ];
   return (
     <div className="fixed inset-x-0 bottom-0 w-full bg-gradient-to-b from-muted/30 from-0% to-muted/30 to-50% duration-300 ease-in-out animate-in dark:from-background/10 dark:from-10% dark:to-background/80 peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]">
       <ButtonScrollToBottom
