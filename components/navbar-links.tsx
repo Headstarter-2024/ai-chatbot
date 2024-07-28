@@ -17,26 +17,26 @@ export default function NavBarLinks() {
     >
       <div
         onClick={() => handleClick('features')}
-        className="cursor-pointer text-sm font-medium hover:underline underline-offset-4"
+        className="cursor-pointer text-sm font-medium hover:underline underline-offset-4 max-sm:text-xs"
       >
         Features
       </div>
       <div
         onClick={() => handleClick('testimonials')}
-        className="cursor-pointer text-sm font-medium hover:underline underline-offset-4"
+        className="cursor-pointer text-sm font-medium hover:underline underline-offset-4 max-sm:text-xs"
       >
         Testimonials
       </div>
       <Link
         href="/chat"
-        className="text-sm font-medium hover:underline underline-offset-4"
+        className="text-sm font-medium hover:underline underline-offset-4 max-sm:text-xs"
         prefetch={false}
       >
         Chat Now
       </Link>
       <Link
         href="#"
-        className="text-sm font-medium hover:underline underline-offset-4"
+        className="text-sm font-medium hover:underline underline-offset-4 max-sm:hidden"
         prefetch={false}
       >
         Contact

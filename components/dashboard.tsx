@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { useScroll } from '@/context/ScrollContext'
 import { useEffect, useRef } from 'react'
@@ -34,7 +35,7 @@ export function DashBoard() {
   }, [scrollAction])
 
   return (
-    <div className="flex flex-col min-h-[100dvh]">
+    <div className="flex flex-col min-h-[dvh]">
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[#f0f4ff] text-[#4b5563]">
           <div className="container px-4 md:px-6">
@@ -59,12 +60,12 @@ export function DashBoard() {
                   </Link>
                 </div>
               </div>
-              <img
-                src="/placeholder.svg"
+              <Image
+                src="/chatbot.png"
                 width="550"
                 height="310"
                 alt="Hero"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+                className="mx-auto aspect-video rounded-xl object-cover sm:w-full h-[350px]"
               />
             </div>
           </div>
@@ -124,12 +125,12 @@ export function DashBoard() {
                   </li>
                 </ul>
               </div>
-              <img
-                src="/placeholder.svg"
+              <Image
+                src="/chatbot.png"
                 width="550"
                 height="310"
-                alt="Features"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+                alt="Hero"
+                className="mx-auto aspect-video rounded-xl object-cover sm:w-full h-[350px]"
               />
             </div>
           </div>
@@ -191,12 +192,12 @@ export function DashBoard() {
                   </blockquote>
                 </div>
               </div>
-              <img
-                src="/placeholder.svg"
+              <Image
+                src="/chatbot.png"
                 width="550"
                 height="310"
-                alt="Testimonials"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+                alt="Hero"
+                className="mx-auto aspect-video rounded-xl object-cover sm:w-full h-[100px]"
               />
             </div>
           </div>
