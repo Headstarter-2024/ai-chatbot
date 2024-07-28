@@ -178,8 +178,8 @@ export function DashBoard() {
                   </div>
                   <blockquote className="text-[#6b7280]">
                     &quot;I was skeptical at first, but the Mindful AI chatbot
-                    has\n truly helped me manage my anxiety and improve my
-                    overall\n well-being.&quot;
+                    has truly helped me manage my anxiety and improve my
+                    overall  well-being.&quot;
                   </blockquote>
                 </div>
               </div>
