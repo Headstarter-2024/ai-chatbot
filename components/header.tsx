@@ -7,12 +7,14 @@ import { ChatHistory } from './chat-history'
 import { Session } from '@/lib/types'
 import { auth } from '@/auth'
 import { BrainIcon } from '@/components/ui/icons'
-import { Button } from './ui/button';
-import { IconSeparator } from '@/components/ui/icons';
+import { Button } from './ui/button'
+import { IconSeparator } from '@/components/ui/icons'
 import NavBarLinks from './navbar-links'
+import NavBarIcon from './navbar-icon'
 
 async function UserOrLogin() {
   const session = (await auth()) as Session
+
   return (
     <>
       {session?.user ? (
@@ -23,10 +25,7 @@ async function UserOrLogin() {
           <SidebarToggle />
         </>
       ) : (
-        <Link href="/" rel="nofollow">
-                    <BrainIcon className="h-6 w-6 text-[#6366f1]" />
-
-        </Link>
+        <NavBarIcon />
       )}
       <div className="flex items-center">
         <IconSeparator className="size-6 text-muted-foreground/50" />

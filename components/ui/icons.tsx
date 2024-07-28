@@ -476,8 +476,7 @@ function IconChevronUpDown({
   )
 }
 
-
-function BrainIcon(props : any) {
+function BrainIcon(props: any) {
   return (
     <svg
       {...props}
@@ -534,4 +533,3 @@ export {
   IconChevronUpDown,
   BrainIcon
 }
-

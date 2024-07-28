@@ -12,7 +12,7 @@ export async function createUser(
   hashedPassword: string,
   salt: string
 ) {
-  console.log("IN CREATEUSER. CALLING GETUSER")
+  console.log('IN CREATEUSER. CALLING GETUSER')
   const existingUser = await getUser(email)
 
   if (existingUser) {
@@ -71,7 +71,7 @@ export async function signup(
       saltedPassword
     )
     const hashedPassword = getStringFromBuffer(hashedPasswordBuffer)
-      console.log('PARSED CRED WAS SUCCESS, CALLING CREATEUSER NOW')
+    console.log('PARSED CRED WAS SUCCESS, CALLING CREATEUSER NOW')
     try {
       const result = await createUser(email, hashedPassword, salt)
 
@@ -86,7 +86,7 @@ export async function signup(
 
       return result
     } catch (error) {
-      console.log('ERROR : ', error);
+      console.log('ERROR : ', error)
       if (error instanceof AuthError) {
         switch (error.type) {
           case 'CredentialsSignin':

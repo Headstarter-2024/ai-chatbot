@@ -42,7 +42,7 @@ export async function authenticate(
         email,
         password,
         redirect: false
-      });
+      })
       console.log('BACK FROM SIGNIN, SUCCESS')
 
       return {
@@ -57,7 +57,7 @@ export async function authenticate(
       }
     }
   } catch (error) {
-    console.log('AN ERROR : ', error);
+    console.log('AN ERROR : ', error)
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
