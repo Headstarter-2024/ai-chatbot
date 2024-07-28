@@ -22,6 +22,14 @@ export function DashBoard() {
       refs[scrollAction.section as keyof typeof refs].current?.scrollIntoView({
         behavior: 'smooth'
       })
+      setTimeout(() => {
+        // Adjust the scroll position by subtracting pixels from the top
+        const adjustmentPixels = 100; // scroll 100px up
+        window.scrollBy({
+          top: -adjustmentPixels,
+          behavior: 'smooth'
+        });
+      }, 750);
     }
   }, [scrollAction])
 
@@ -64,7 +72,7 @@ export function DashBoard() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f4ff] text-[#4b5563]">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div ref={featuresRef} className="space-y-2">
+              <div ref={featuresRef} className="space-y-2 flex flex-col items-center">
                 <div className="inline-block rounded-lg bg-[#e5e7eb] px-3 py-1 text-sm">
                   Key Features
                 </div>

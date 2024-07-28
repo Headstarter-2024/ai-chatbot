@@ -50,7 +50,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Providers
           attribute="class"
           defaultTheme="light"
-          enableSystem
           disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
